@@ -1,11 +1,13 @@
 line: list[str, ...] = input().split()
 
-# if not line:
-#     print('Пустой список')
-# else:
-#     for index, item in enumerate(line):
-#         print(f'{int(item)} {index}')
+if not line:
+    print('Пустой список')
+else:
+    for index, item in enumerate(line):
+        print(f'{int(item)} {index}')
 
+# Option 2
+# -------------------------
 length: int = len(line)
 
 if length == 0:
