@@ -1,18 +1,13 @@
+# TODO: Здесь лучше примегить генератор списков
 nums: list[int, ...] = list(map(int, input().split()))
 
-correct_nums: dict[int, ...] = {}
-for num in nums:
-    if num in correct_nums:
-        correct_nums[num] += 1
+length: int = len(nums)
+result: list[int, ...] = []
+for i in range(length):
+    for j in range(length):
+        if nums[i] == nums[j] and i != j:
+            break
     else:
-        correct_nums[num] = 1
+        result.append(str(nums[i]))
 
-result: list[str, ...] = []
-for num in nums:
-    if correct_nums[num] == 1:
-        result.append(str(num))
-
-if len(result) > 0:
-    print(' '.join(result))
-else:
-    print(False)
+print(' '.join(result) or False)

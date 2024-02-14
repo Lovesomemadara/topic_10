@@ -16,3 +16,16 @@ if len(line) == len(correct_lst):
     print('В списке не найдено дубликатов')
 else:
     print(f'Удалено {len(line) - len(correct_lst)} дубликатов')
+
+# Подсказка к задаче:
+text = 'abccc'
+for i in range(len(text)):
+    text = text.replace('c', '')
+    print(text[i])
+
+text = 'abccc'
+i = 0
+while i < len(text):
+    text = text.replace('c', '')
+    print(text[i])
+    i += 1
