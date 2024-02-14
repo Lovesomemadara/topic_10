@@ -1,1 +1,3 @@
-# TODO: Пожалуйста, добавьте свой код ниже с комментариями и понятными названиями переменных.
+line: list[str, ...] = input().split()
+print(min(line, key=len))
+print(max(line, key=len))
