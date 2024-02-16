@@ -1,10 +1,8 @@
-num: int = int(input())
+# n: int = int(input())
+# print(len([num for num in list(map(int, input().split())) if num > n]) or -1)
 
-more_counter: int = 0
-for curr_num in input().split():
-    if num < int(curr_num):
-        more_counter += 1
+# -------------------------------------------------------
 
-print(more_counter or -1)
-
-# TODO: Можно решить в одну строку, через генератор списков
+line: list[int, ...] = list(map(int, input().split()))
+n: int = int(input())
+print(len([num for num in line if num > n]) or -1)
