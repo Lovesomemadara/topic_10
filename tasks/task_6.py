@@ -1,4 +1,4 @@
-line: list[int, ...] = list(map(int, input().split()))
+line: list[int, ...] = [int(x) for x in input().split()]
 num: int = int(input())
 
 if not line:

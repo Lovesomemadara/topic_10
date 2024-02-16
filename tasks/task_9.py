@@ -1,6 +1,8 @@
-nums: list[int, ...] = list(map(int, input().split()))
+nums: list[int, ...] = [int(x) for x in input().split()]
 
-result: list[int, ...] = [nums[num] for num in range(1, len(nums))
-                          if nums[num] > nums[num - 1]]
+nums: list[str, ...] = [
+    str(nums[i]) for i in range(1, len(nums))
+    if nums[i] > nums[i - 1]
+]
 
-print(' '.join(map(str, result)) or False)
+print(' '.join(nums) or False)
