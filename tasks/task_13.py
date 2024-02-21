@@ -1,20 +1,17 @@
-# names: list[str, ...] = [name for name in input().split(',')]
-#
-# commands: list[list[str, ...]] = [
-#     part.split(' ')
-#     for part in (input().split(','))
-# ]
-
 names: list[str, ...] = input().split(',')
-commands: list[str, ...] = input().split(',')
 
-for command in commands:
-    parts: list[str, ...] = command.split(' ')
-    artist: str = parts[0]
-    change: int = int(parts[1])
+for command in input().split(','):
+    artist, change = command.split(' ')
 
-    index = names.index(artist)
-    names.remove(artist)
-    names.insert(index - change, artist)
+    # parts: list[str, ...] = command.split(' ')
+    # artist: str = parts[0]
+    # change: int = int(parts[1])
+
+    index: int = names.index(artist)
+
+    # names.remove(artist)
+    # names.insert(index - int(change), artist)
+
+    names.insert(index - int(change), names.pop(index))
 
 print(names)
