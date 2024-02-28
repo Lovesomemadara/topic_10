@@ -14,3 +14,7 @@ for tile in nums:
             merged_tiles[i] = tile
 
 print(merged_tiles)
+
+# Option 2
+
+# TODO: Idea  merged_tiles: list[int, ...] = [n for n in nums if n != 0]

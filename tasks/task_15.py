@@ -1,4 +1,4 @@
-WEATHER_DATA_FOR_YEAR: list[list[int, ...]] = [
+WEATHER_DATA_FOR_YEAR: list[list[int]] = [
     [-33, -28, -18, -39, -39, -21, -20, -40,
      -25, -12, -35, -10, -15, -14, -22, -34,
      -34, -22, -30, -24, -23, -20, -18, -12,
@@ -60,23 +60,26 @@ WEATHER_DATA_FOR_YEAR: list[list[int, ...]] = [
      -21, -19, -19, -23, -23, -17]
 ]
 
-MONTHES: list[str, ...] = ['январь', 'февраль', 'март', 'апрель', 'май',
-                           'июнь', 'июль', 'август', 'сентябрь',
-                           'октябрь', 'ноябрь', 'декабрь']
+MONTHES: list[str] = ['январь', 'февраль', 'март', 'апрель', 'май',
+                      'июнь', 'июль', 'август', 'сентябрь',
+                      'октябрь', 'ноябрь', 'декабрь']
 
 month_or_year: str = input()
 
 if month_or_year.lower() == 'год':
-    temperatures: list[int, ...] = [
+    # TODO: Формула для среднегодовой температуре:
+    #  сумма(средние температуры месяцев) / количество(месяцев)
+
+    temperatures: list[int] = [
         temperature for sublist in WEATHER_DATA_FOR_YEAR
         for temperature in sublist
     ]
 
-    avg_temp: float = sum(temperatures) / len(temperatures)
+    avg_temp: float = round(sum(temperatures) / len(temperatures), 2)
     print(f'Среднегодовая температура: {avg_temp:.2f} C.')
 
 else:
     month_index: int = MONTHES.index(month_or_year.lower())
-    temperatures: int = WEATHER_DATA_FOR_YEAR[month_index]
-    avg_temp: float = sum(temperatures) / len(temperatures)
+    temperatures: list[int] = WEATHER_DATA_FOR_YEAR[month_index]
+    avg_temp: float = round(sum(temperatures) / len(temperatures), 2)
     print(f'Средняя температура за {month_or_year}: {avg_temp:.2f} C.')
