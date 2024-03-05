@@ -1,20 +1,15 @@
-nums: list[int, ...] = [int(x) for x in input().split()]
+nums = [int(x) for x in input().split()]
+merged_tiles = [n for n in nums if n != 0]
 
-merged_tiles: list[int, ...] = [0] * len(nums)
-i: int = 0
-for tile in nums:
-    if tile != 0:
-        if merged_tiles[i] == 0:
-            merged_tiles[i] = tile
-        elif merged_tiles[i] == tile:
-            merged_tiles[i] *= 2
-            i += 1
-        else:
-            i += 1
-            merged_tiles[i] = tile
+i = 0
+while i < len(merged_tiles) - 1:
+    if merged_tiles[i] == merged_tiles[i + 1] != 0:
+        merged_tiles[i] *= 2
+        merged_tiles.pop(i + 1)
+
+        if len(nums) != len(merged_tiles):
+            merged_tiles.extend([0] * (len(nums) - len(merged_tiles)))
+
+    i += 1
 
 print(merged_tiles)
-
-# Option 2
-
-# TODO: Idea  merged_tiles: list[int, ...] = [n for n in nums if n != 0]
