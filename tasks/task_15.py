@@ -67,17 +67,12 @@ MONTHES: list[str] = ['январь', 'февраль', 'март', 'апрел�
 month_or_year: str = input()
 
 if month_or_year.lower() == 'год':
-    # TODO: Формула для среднегодовой температуре:
-    #  сумма(средние температуры месяцев) / количество(месяцев)
-
     temperatures: list[float] = [
         (sum(temperature) / len(temperature))
         for temperature in WEATHER_DATA_FOR_YEAR
     ]
-
     avg_temp: float = round(sum(temperatures) / len(temperatures), 2)
     print(f'Среднегодовая температура: {avg_temp} C.')
-
 else:
     month_index: int = MONTHES.index(month_or_year.lower())
     temperatures: list[int] = WEATHER_DATA_FOR_YEAR[month_index]
